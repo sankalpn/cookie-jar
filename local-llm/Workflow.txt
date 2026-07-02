@@ -1,0 +1,58 @@
+Please use the browser-automation skill (do not use web_fetch).
+Confirm each step result with me and wait for me to say "go" before proceeding.
+Use exact URLs as provided — do not edit them in any way. If the URL contains special characters, enclose the URL in single quotes instead of any other encoding
+
+Global rule for all extraction steps:
+- Extract the full raw HTML source of the page.
+- Parse the raw HTML directly in a single pass from top to bottom.
+- Extract per listing: company name, job title, job description, compensation, location, listing URL, and posted time.
+- Do not assume any pattern for listing URLs — read them from the HTML.
+- Stop extraction once you encounter a listing posted more than 2 weeks ago.
+  - Include: "X days ago" where X <= 14, "2 weeks ago"
+  - Stop: "X weeks ago" where X > 2, "X months ago"
+  - Missing posted time: include but flag as "unknown"
+
+Step 1:
+- Open a new tab and navigate to: https://jobs.8vc.com/jobs?filter=eyJqb2JfZnVuY3Rpb25zIjpbIlNvZnR3YXJlIEVuZ2luZWVyaW5nIiwiRGF0YSBTY2llbmNlIl0sImNvbXBlbnNhdGlvbl9jdXJyZW5jeSI6IlVTRCIsImNvbXBlbnNhdGlvbl9wZXJpb2QiOiJ5ZWFyIiwiY29tcGVuc2F0aW9uX2Ftb3VudF9taW5fY2VudHMiOiIyMDAwMDAwMCIsImNvbXBlbnNhdGlvbl9vZmZlcnNfZXF1aXR5Ijp0cnVlfQ%3D%3D
+- Take a snapshot and confirm the page has loaded.
+- Scroll to the bottom 3 times with a 2 second pause between each scroll.
+- If a "Load more" button is visible, click it and wait 2 seconds.
+- Confirm how many listings are visible before proceeding.
+
+Step 2:
+- Extract the full raw HTML source of the page opened in Step 1.
+- Parse all listings in a single pass following the global extraction rules above.
+- Confirm how many listings were extracted and show a preview of the first 5 rows before proceeding.
+- Label all results as source: "8VC"
+
+Step 3:
+- Open a new tab and navigate to: https://jobs.a16z.com/jobs?jobTypes=Software+Engineer&locations=San+Francisco+Bay+Area&postedSince=P7D&salaryCurrency=US+Dollar&salaryPeriod=Year&salaryMin=250000&salaryMax=500000
+- Take a snapshot and confirm the page has loaded.
+- Scroll to the bottom 3 times with a 2 second pause between each scroll.
+- If a “Show more jobs” button is visible, click it and wait 2 seconds.
+- Confirm how many listings are visible before proceeding.
+
+Step 4:
+- Extract the full raw HTML source of the page opened in Step 3.
+- Parse all listings in a single pass following the global extraction rules above.
+- Confirm how many listings were extracted and show a preview of the first 5 rows before proceeding.
+- Label all results as source: "a16z"
+
+Step 5:
+- Open a new tab and navigate to: https://www.workatastartup.com/companies?demographic=any&hasEquity=any&hasSalary=any&industry=any&interviewProcess=any&jobType=fulltime&layout=list-compact&locations=US&minExperience=11&role=eng&sortBy=created_desc&tab=any&usVisaNotRequired=any
+- Take a snapshot and confirm the page has loaded.
+- Scroll to the bottom 3 times with a 2 second pause between each scroll.
+- If a "Load more" button is visible, click it and wait 2 seconds.
+- Confirm how many listings are visible before proceeding.
+
+Step 6:
+- Extract the full raw HTML source of the page opened in Step 5.
+- Parse all listings in a single pass following the global extraction rules above.
+- Confirm how many listings were extracted and show a preview of the first 5 rows before proceeding.
+- Label all results as source: “yCombinator”
+
+Step 7: Present all extracted data as a single combined table:
+Source | Company | Job Title | Compensation | Location | Posted | Application URL
+Include job description as a row below each entry.
+
+Step 8: Close all tabs opened in Steps 1, 3, and 5.
