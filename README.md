@@ -16,7 +16,9 @@ effort.
 I have tested codex, and it works like a charm. In my setup, I have set up a chrome profile for codex and installed the
 codex plugin on it. This makes chrome as lightweight as possible, without me having to worry about other extensions in
 my normal profile. Password manager extensions are specifically very tricky. Codex somehow cannot access page contents
-if LastPass extension is enabled. 
+if LastPass extension is enabled.
+<p>Note that yCombinator board needs you to be logged in.
+I simply logged in in chrome codex prifile.</p>
 
 ## Learning so far
 Local LLMs have made a lot of progress, but still nowhere close to frontier models for multistep workflow orchestration.
